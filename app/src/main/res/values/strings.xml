@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Movie db (grupo salinas)</string>
+    <string name="titulo">Welcome.</string>
+    <string name="subtitulo">Millions of movies, TV shows and people to discover. Explore now.</string>
+    <string name="list_episodios">Lista de episodios</string>
+    <string name="video">Video</string>
+    <string name="Playing_Now">Playing Now</string>
+    <string name="Iniciar">Iniciar Aplicación</string>
+    <string name="Most_Popular">Most Popular</string>
+
+</resources>
