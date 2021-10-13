@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "641601984139",
+    "project_id": "aplicationupax",
+    "storage_bucket": "aplicationupax.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641601984139:android:297053f3ef371ee26c268e",
+        "android_client_info": {
+          "package_name": "com.upax.aplicationupax"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641601984139-c2iege3c2tiobtkkv1jpvb0cue3rgv32.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVrU5LZ_6Yf_JzVthXgyegjVlr6mJAE5g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641601984139-c2iege3c2tiobtkkv1jpvb0cue3rgv32.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
