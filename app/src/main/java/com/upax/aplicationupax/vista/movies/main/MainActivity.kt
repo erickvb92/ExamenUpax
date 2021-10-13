@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.upax.aplicationupax.R
-import com.upax.aplicationupax.vista.movies.movie_list.MovieActivity
+import com.upax.aplicationupax.vista.movies.menu.MenuActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
 
         iniciar.setOnClickListener {
-            startActivity(Intent(this, MovieActivity::class.java))
+            startActivity(Intent(this, MenuActivity::class.java))
         }
     }
 }

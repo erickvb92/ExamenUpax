@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back"
+    android:background="@drawable/edificio"
     tools:context=".vista.movies.main.MainActivity">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:text="@string/titulo"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/blue_cyan"
             android:textStyle="bold"
             android:layout_marginTop="20sp"
             android:layout_marginBottom="20sp"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:text="@string/subtitulo"
             android:textAlignment="center"
-            android:textColor="@color/white"
+            android:textColor="@color/blue_cyan"
             android:textStyle="bold"
             android:layout_marginTop="20sp"
             android:layout_marginBottom="20sp"
@@ -41,7 +41,7 @@
         android:layout_width="170sp"
         android:layout_height="30sp"
         android:layout_gravity="center"
-        android:background="@color/white"
+        android:background="@color/blue"
         android:textColor="@color/black"
         android:text="@string/Iniciar" />
 

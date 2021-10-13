@@ -26,6 +26,7 @@ class AdapterNow (
     inner class listViewHolder(private val view: View): RecyclerView.ViewHolder(view){
         fun onBindItem(list: Results){
             view.titulo.text = list.title
+            view.date.text = list.release_date
             Glide.with(context).load(BuildConfig.IMAGE_URL+""+list.poster_path).into(view.imagen)
 
             view.card_view.setOnClickListener {v ->

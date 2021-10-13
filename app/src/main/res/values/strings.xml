@@ -8,4 +8,10 @@
     <string name="Iniciar">Iniciar Aplicación</string>
     <string name="Most_Popular">Most Popular</string>
 
+    <string name="movie_db">Peliculas</string>
+    <string name="mapa">Ubicacion en Mapa</string>
+    <string name="subir_imagen">Subir Imagenes</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
 </resources>
