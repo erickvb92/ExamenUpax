@@ -1,13 +1,18 @@
 package com.upax.aplicationupax.vista.movies.movie_list
+import android.content.SharedPreferences
+import android.preference.PreferenceManager
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.common.reflect.TypeToken
+import com.google.gson.Gson
 import com.upax.aplicationupax.BuildConfig
 import com.upax.aplicationupax.api.Repository
 import com.upax.aplicationupax.model.Results
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.lang.reflect.Type
 import java.util.*
 
 class MovieViewModel : ViewModel() {
@@ -16,7 +21,7 @@ class MovieViewModel : ViewModel() {
     val _loading = MutableLiveData<Boolean>()
     val _error = MutableLiveData<String>()
     val _popular = MutableLiveData<kotlin.collections.List<Results>>()
-    val _now = MutableLiveData<kotlin.collections.List<Results>>()
+    val _now = MutableLiveData<kotlin.collections.List<Results>?>()
 
     fun getPopular() {
         _loading.postValue(true)
@@ -102,6 +107,7 @@ class MovieViewModel : ViewModel() {
                 } else
                     _error.postValue("Error al obtener la información del servidor")
             } catch (e: Exception) {
+                _now.postValue(null)
                 _loading.postValue(false)
                 _error.postValue("Error al obtener la información del servidor")
                 if (BuildConfig.DEBUG)

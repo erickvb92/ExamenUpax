@@ -108,7 +108,7 @@
                         android:layout_marginLeft="30sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginRight="30sp"
-                        android:background="@drawable/tron" />
+                        android:background="@drawable/movies" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
@@ -134,7 +134,7 @@
                         android:layout_marginLeft="30sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginRight="30sp"
-                        android:background="@drawable/tron" />
+                        android:background="@drawable/mapa" />
 
                     <androidx.appcompat.widget.AppCompatTextView
 
@@ -162,7 +162,7 @@
                         android:layout_marginLeft="30sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginRight="30sp"
-                        android:background="@drawable/tron" />
+                        android:background="@drawable/imagen" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
@@ -188,7 +188,7 @@
                         android:layout_marginLeft="30sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginRight="30sp"
-                        android:background="@drawable/tron" />
+                        android:background="@drawable/pagina" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"
@@ -214,7 +214,7 @@
                         android:layout_marginLeft="30sp"
                         android:layout_marginTop="5sp"
                         android:layout_marginRight="30sp"
-                        android:background="@drawable/tron" />
+                        android:background="@drawable/acerca" />
 
                     <androidx.appcompat.widget.AppCompatTextView
                         android:layout_width="wrap_content"

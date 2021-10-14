@@ -1,10 +1,13 @@
 package com.upax.aplicationupax.vista.movies.mapa_fragment
 import android.Manifest
+import android.R.attr
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.*
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +29,22 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.upax.aplicationupax.R
 import com.upax.aplicationupax.vista.movies.base.BaseFragment
 import kotlinx.android.synthetic.main.mapa.*
+import com.google.firebase.firestore.FirebaseFirestore
+import androidx.annotation.NonNull
+
+import com.google.android.gms.tasks.OnFailureListener
+
+import com.google.firebase.firestore.DocumentReference
+
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.firestore.QueryDocumentSnapshot
+
+import com.google.firebase.firestore.QuerySnapshot
+
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.android.gms.maps.model.PolylineOptions
+import android.R.attr.path
+import android.graphics.Color
 
 
 class MapaFragment : BaseFragment(), OnMapReadyCallback, LocationListener,
@@ -145,7 +164,64 @@ class MapaFragment : BaseFragment(), OnMapReadyCallback, LocationListener,
                     latitud = ubicacion.latitude.toString()
                     longitud = ubicacion.longitude.toString()
 
+                    try {
+                        val db = FirebaseFirestore.getInstance()
+// Create a new user with a first, middle, and last name
 
+                        // Create a new user with a first, middle, and last name
+                        val user: MutableMap<String, Any> = HashMap()
+                        user["latitud"] = latitud
+                        user["longitud"] = longitud
+                        user["fecha"] = "2021-09-12"
+                        user["hora"] = "10:50"
+
+// Add a new document with a generated ID
+
+// Add a new document with a generated ID
+                        db.collection("users")
+                            .add(user)
+                            .addOnSuccessListener { documentReference ->
+                                Log.d(
+                                    TAG,
+                                    "DocumentSnapshot added with ID: " + documentReference.id
+                                )
+                            }
+                            .addOnFailureListener { e -> Log.w(TAG, "Error adding document", e) }
+
+                        db.collection("users")
+                            .get()
+                            .addOnCompleteListener { task ->
+                                if (task.isSuccessful) {
+                                    val points: ArrayList<LatLng> = ArrayList()
+                                    val lineOptions = PolylineOptions()
+
+                                    for (document in task.result) {
+                                        Log.d(TAG, document.id + " => " + document.data)
+
+                                        var lat = document.getString("latitud")
+                                        val lat_double: Double? = lat!!.toDouble()
+                                        var lon = document.getString("longitud")
+                                        val lon_double: Double? = lon!!.toDouble()
+
+                                        val position = LatLng(lat_double!!, lon_double!!)
+
+                                        points.add(position)
+                                    }
+                                    lineOptions.addAll(points);
+                                    lineOptions.width(12F);
+                                    lineOptions.color(Color.RED);
+
+                                    // Drawing polyline in the Google Map for the entire route
+                                    mMap.addPolyline(lineOptions);
+                                } else {
+                                    Log.w(TAG, "Error getting documents.", task.exception)
+                                }
+                            }
+
+
+                    } catch (e: Exception) {
+                       e.printStackTrace()
+                    }
                 }
 
                 buildGoogleApiClient()

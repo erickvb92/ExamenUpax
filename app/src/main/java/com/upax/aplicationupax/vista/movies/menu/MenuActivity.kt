@@ -1,5 +1,7 @@
 package com.upax.aplicationupax.vista.movies.menu
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -11,6 +13,7 @@ import com.google.android.material.navigation.NavigationView
 import com.upax.aplicationupax.R
 import com.upax.aplicationupax.vista.movies.base.BaseActivity
 import com.upax.aplicationupax.vista.movies.base.BaseFragment
+import com.upax.aplicationupax.vista.movies.imagenes_fragment.ImagenesFragment
 import com.upax.aplicationupax.vista.movies.mapa_fragment.MapaFragment
 import com.upax.aplicationupax.vista.movies.movie_list.MovieFragment
 import kotlinx.android.synthetic.main.activity_main_navigationview.*
@@ -28,9 +31,9 @@ class MenuActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
     private val mapaF : MapaFragment by lazy {
         MapaFragment.newInstance()
     }
-    /*private val imagenesF : GigasFragment by lazy {
-        GigasFragment.newInstance()
-    }*/
+    private val imagenesF : ImagenesFragment by lazy {
+        ImagenesFragment.newInstance()
+    }
 
 
     private lateinit var drawerLayout: DrawerLayout
@@ -64,7 +67,17 @@ class MenuActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
             changeFragment(FragmentShow.PELICULAS)
         }
         subir_imagen2.setOnClickListener {
-            changeFragment(FragmentShow.PELICULAS)
+            changeFragment(FragmentShow.IMAGENES)
+        }
+        pagina.setOnClickListener {
+            val uri: Uri = Uri.parse("https://upax.com.mx/")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(intent)
+        }
+        contacto.setOnClickListener {
+            val uri: Uri = Uri.parse("https://upax.com.mx/")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            startActivity(intent)
         }
 
     }
@@ -78,7 +91,7 @@ class MenuActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
         currentFragment = when (fragmentShow) {
             FragmentShow.PELICULAS -> peliculasF
             FragmentShow.MAPA -> mapaF
-            FragmentShow.IMAGENES -> peliculasF
+            FragmentShow.IMAGENES -> imagenesF
         }
             launchFragmentTransaction(fragmentShow)
     }
@@ -105,7 +118,7 @@ class MenuActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
             R.id.movie_db -> changeFragment(FragmentShow.PELICULAS)
             R.id.mapa -> changeFragment(FragmentShow.MAPA)
-            R.id.subir_imagen -> changeFragment(FragmentShow.PELICULAS)
+            R.id.subir_imagen -> changeFragment(FragmentShow.IMAGENES)
 
         }
         drawerLayout.closeDrawer(GravityCompat.START)
